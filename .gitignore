@@ -3,3 +3,7 @@ node_modules
 public/videos/
 
 public/images/
+
+node_modules/
+
+.next/
