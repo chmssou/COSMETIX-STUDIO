@@ -1,0 +1,228 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+--color-primary: #A94867;
+  --color-accent: #A94867;
+  --color-accent-light: #F6E3E8;
+  --color-bg: #FFFFFF;
+  --color-bg-secondary: #F8F9FA;
+  --color-dark-section: #FFFFFF;
+  --color-heading: #1A1A1A;
+  --color-body: #666666;
+  --color-surface: #F8F9FA;
+  --color-blush: #F6E3E8;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: 'Inter', 'IBM Plex Sans', system-ui, sans-serif;
+  background-color: var(--color-bg);
+  color: #ffffff;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Global Vignette Effect - darkened edges */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Utility classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animate-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animate-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animate-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animate-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animate-delay-500 {
+    animation-delay: 500ms;
+  }
+}
+
+/* Global animated background */
+.global-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Noise texture overlay - 2.5% opacity for subtle depth */
+.global-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 10;
+}
+
+.global-bg-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: floatBlob 20s ease-in-out infinite;
+}
+
+/* Brand-colored gradient orbs in corners */
+.global-bg-blob-1 {
+  width: 700px;
+  height: 700px;
+background: radial-gradient(circle, var(--color-accent) 0%, var(--color-blush) 50%, transparent 70%);
+  top: -300px;
+  left: -200px;
+  animation-delay: 0s;
+}
+
+.global-bg-blob-2 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  top: 40%;
+  right: -200px;
+  animation-delay: -5s;
+}
+
+.global-bg-blob-3 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-accent) 0%, transparent 70%);
+  bottom: -200px;
+  left: 20%;
+  animation-delay: -10s;
+}
+
+/* Additional corner accent orbs */
+.global-bg-blob-4 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #A94867 0%, transparent 70%);
+  top: 60%;
+  left: -100px;
+  animation-delay: -7s;
+  opacity: 0.08;
+}
+
+.global-bg-blob-5 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, var(--color-accent-light) 0%, transparent 70%);
+  bottom: 10%;
+  right: 10%;
+  animation-delay: -12s;
+  opacity: 0.06;
+}
+
+@keyframes floatBlob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(20px, 10px) scale(1.02);
+  }
+}
+
