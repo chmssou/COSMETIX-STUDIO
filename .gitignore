@@ -7,3 +7,8 @@ public/images/
 node_modules/
 
 .next/
+node_modules/
+.next/
+public/videos/
+public/images/
+*.pack.gz
