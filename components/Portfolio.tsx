@@ -20,17 +20,7 @@ type Project = {
 const POWER3_OUT = [0.215, 0.61, 0.355, 1] as const
 const PREMIUM_EASE = [0.77, 0, 0.175, 1] as const
 
-type Project = {
-  _id: string
-  id?: string
-  title: string
-  category: string
-  videoSrc?: string
-  thumbnail?: string
-  images?: string[]
-  btsVideo?: string
-  order?: number
-}
+
 
 function ImageLightbox({ imageSrc, onClose }: { imageSrc: string; onClose: () => void }) {
   return (
