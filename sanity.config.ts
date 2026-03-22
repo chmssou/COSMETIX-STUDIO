@@ -1,6 +1,6 @@
 'use client'
 import {visionTool} from '@sanity/vision'
-import {defineConfig, structureTool} from 'sanity'
+import {defineConfig} from 'sanity'
 import {apiVersion, dataset, projectId} from './sanity/env'
 import {schema} from './sanity/schemaTypes'
 
@@ -10,7 +10,10 @@ export default defineConfig({
   dataset,
   schema,
   plugins: [
-    structureTool(),
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  document: {
+    newDocumentOptions: (prev) =>
+      prev.filter((option) => option.templateId === 'project'),
+  },
 })
