@@ -49,7 +49,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <a href="#" className="flex-shrink-0">
               <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-[#A94867]/50">
-                <Image src="/profile2.jpg" alt="Cosmetix Studio" width={40} height={40} className="w-full h-full object-cover" />
+                <img src="/profile2.jpg" alt="Cosmetix Studio" width="40" height="40" className="w-full h-full object-cover" />
               </div>
             </a>
             <a href="https://www.linkedin.com/company/cosmetixstudio/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center group hover:bg-[#A94867] transition-all duration-300">
